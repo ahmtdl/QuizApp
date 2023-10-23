@@ -83,13 +83,13 @@ export default function QuizQuestion({ quiz }) {
                   <span
                     className={`${
                       showAnswers && question.correctAnswer === answer
-                        ? "bg-green text-white"
+                        ? "bg-green"
                         : showAnswers &&
                           question.result === "incorrect" &&
                           question.selectedAnswer === answer
-                        ? "bg-red text-white"
+                        ? "bg-red"
                         : question.selectedAnswer === answer
-                        ? "bg-morumsu text-white"
+                        ? "bg-morumsu"
                         : ""
                     } flex rounded-lg p-2 px-4`}
                   >

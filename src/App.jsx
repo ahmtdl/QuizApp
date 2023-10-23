@@ -5,7 +5,7 @@ import { decode } from "html-entities";
 export default function App() {
   const [quiz, setQuiz] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState("9");
+  const [category, setCategory] = useState(9);
   const [difficulty, setDifficulty] = useState("easy");
   const [loading, setLoading] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
@@ -28,9 +28,9 @@ export default function App() {
     console.log(value);
   };
 
-  const handleStartQuiz = () => {
+  const handleStartQuiz = async () => {
     setLoading(true);
-    fetch(
+    await fetch(
       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     )
       .then((res) => res.json())
@@ -71,7 +71,7 @@ export default function App() {
                     />
                     <div
                       className={`${
-                        category === x.id ? "bg-morumsu" : ""
+                        category === x.id.toString() ? "bg-morumsu" : ""
                       } rounded-lg p-2 px-4 hover:bg-morumsu cursor-pointer`}
                     >
                       {x.name}
